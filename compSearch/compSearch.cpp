@@ -12,12 +12,11 @@ struct CompSearch
         int keySize = strlen(key);
         int wordSize = strlen(word);
         
-        // Initialize skip table with keySize
+  
         for (int i = 0; i < 256; i++){
             tab[i] = keySize;
         }
         
-        // Fill skip table for characters in the key
         for (int i = 0; i < keySize; i++){
             tab[key[i]] = keySize - 1 - i;
         }
@@ -27,9 +26,8 @@ struct CompSearch
             return false;
         }
         
-        // Boyer-Moore search algorithm
-        int i = keySize - 1;  // Index in word
-        int j = keySize - 1;  // Index in key
+        int i = keySize - 1; 
+        int j = keySize - 1;  
         
         while (i < wordSize) {
             if (word[i] == key[j]) {
@@ -40,7 +38,7 @@ struct CompSearch
                 i--;
                 j--;
             } else {
-                // Character mismatch - use skip table
+            
                 int skip = tab[word[i]];
                 i += max(skip, keySize - j);
                 j = keySize - 1;
@@ -64,7 +62,7 @@ struct CompSearch
             return true;
         }
         
-        // Построение префикс-функции для образца
+
         int* prefix = new int[keySize];
         prefix[0] = 0;
         int k = 0;
@@ -79,8 +77,8 @@ struct CompSearch
             prefix[i] = k;
         }
         
-        // Поиск подстроки алгоритмом Кнута-Морриса-Пратта
-        int j = 0;  // Индекс в образце
+    
+        int j = 0;  
         
         for (int i = 0; i < wordSize; i++) {
             while (j > 0 && word[i] != key[j]) {
