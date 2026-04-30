@@ -38,21 +38,20 @@ void merge(int arr[], int left, int mid, int right) {
 void countingSort(int arr[], int n) {
     if (n <= 1) return;
     
-    // 1. Находим максимум
+  
     int max = arr[0];
     for (int i = 1; i < n; i++) {
         if (arr[i] > max) max = arr[i];
     }
     
-    // 2. Создаем счетчики
     int* count = new int[max + 1](); 
     
-    // 3. Подсчитываем частоты
+ 
     for (int i = 0; i < n; i++) {
         count[arr[i]]++;
     }
     
-    // 4. Восстанавливаем массив
+
     int index = 0;
     for (int i = 0; i <= max; i++) {
         while (count[i] > 0) {
@@ -66,21 +65,21 @@ void countingSort(int arr[], int n) {
 void bucketSort(int arr[], int n) {
     if (n <= 1) return;
     
-    // Находим минимум и максимум
+ 
     int min = arr[0], max = arr[0];
     for (int i = 1; i < n; i++) {
         if (arr[i] < min) min = arr[i];
         if (arr[i] > max) max = arr[i];
     }
     
-    // Количество корзин = 10 (фиксированное)
+  
     const int BUCKET_COUNT = 10;
     int buckets[10][1000];
     int bucketSizes[10] = {0};
     
-    // Распределяем по корзинам
+   
     for (int i = 0; i < n; i++) {
-        // Нормализуем значение в диапазон [0, BUCKET_COUNT)
+     
         int bucketIndex = (arr[i] - min) * BUCKET_COUNT / (max - min + 1);
         if (bucketIndex >= BUCKET_COUNT) bucketIndex = BUCKET_COUNT - 1;
         
@@ -89,9 +88,9 @@ void bucketSort(int arr[], int n) {
         bucketSizes[bucketIndex]++;
     }
     
-    // Сортируем каждую корзину
+ 
     for (int b = 0; b < BUCKET_COUNT; b++) {
-        // Сортировка вставками
+       
         for (int i = 1; i < bucketSizes[b]; i++) {
             int key = buckets[b][i];
             int j = i - 1;
@@ -103,7 +102,7 @@ void bucketSort(int arr[], int n) {
         }
     }
     
-    // Собираем результат
+ 
     int index = 0;
     for (int b = 0; b < BUCKET_COUNT; b++) {
         for (int i = 0; i < bucketSizes[b]; i++) {
