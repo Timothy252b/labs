@@ -13,25 +13,25 @@ struct QuickSorting {
     }
     
     int partitionHoare(int arr[], int low, int high) {
-        int pivot = arr[low + (high - low) / 2];  // опорный - средний
+        int pivot = arr[low + (high - low) / 2];  
         int i = low - 1;
         int j = high + 1;
         
         while (true) {
-            // Двигаем i вправо, пока элемент меньше опорного
+        
             do {
                 i++;
             } while (arr[i] < pivot);
             
-            // Двигаем j влево, пока элемент больше опорного
+         
             do {
                 j--;
             } while (arr[j] > pivot);
             
-            // Если указатели встретились - выход
+         
             if (i >= j) return j;
             
-            // Меняем местами "неправильные" элементы
+        
             swap(arr[i], arr[j]);
         }
     }
@@ -39,20 +39,20 @@ struct QuickSorting {
     void quickSortHoare(int low, int high) {
         if (low < high) {
             int pivotIndex = partitionHoare(arr, low, high);
-            quickSortHoare( low, pivotIndex);      // левая часть
-            quickSortHoare( pivotIndex + 1, high); // правая часть
+            quickSortHoare( low, pivotIndex);     
+            quickSortHoare( pivotIndex + 1, high); 
         }
     }
     void shellSort() {
-    // Начинаем с большого шага, уменьшаем до 1
+   
     for (int gap = size/2; gap > 0; gap /= 2) {
         
-        // Делаем сортировку вставками с шагом gap
+      
         for (int i = gap; i < size; i++) {
             int temp = arr[i];
             int j = i;
             
-            // Сравниваем элементы, отстоящие на gap
+        
             while (j >= gap && arr[j - gap] > temp) {
                 arr[j] = arr[j - gap];
                 j -= gap;
