@@ -1,0 +1,79 @@
+@startuml
+title UML Diagram - List, Priority Queue and Map Tasks
+
+struct Pair {
+  + first: int
+  + second: int
+  + Pair(f: int, s: int)
+  + operator==(other: Pair) : bool
+  + operator<(other: Pair) : bool
+}
+
+class task1_functions {
+  + {static} task1() : void
+}
+
+class task2_functions {
+  + {static} task2() : void
+}
+
+class task3_functions {
+  + {static} task3() : void
+}
+
+class main {
+  + {static} main() : int
+}
+
+task1_functions --> Pair : uses
+task2_functions --> Pair : uses
+task3_functions --> Pair : uses
+
+task1_functions ..> main
+task2_functions ..> main
+task3_functions ..> main
+
+note top of Pair
+  Структура для хранения пары чисел
+  operator< сравнивает только first
+  operator== сравнивает оба поля
+  Перегружен operator<< для вывода
+end note
+
+note left of task1_functions
+  TASK 1: Работа с list<Pair>
+  Операции:
+  - replace_if (замена first==5 на (0,0))
+  - remove_if (удаление first==0)
+  - sort (по возрастанию и убыванию)
+  - find_if (поиск first==7)
+  - count_if (подсчет first==2)
+  - for_each (добавление min+max к first)
+end note
+
+note right of task2_functions
+  TASK 2: Работа с priority_queue<Pair>
+  Операции:
+  - push элементов в очередь
+  - перемещение в vector
+  - replace_if (замена first==1 на (9,9))
+  - remove_if (удаление first==9)
+  - sort (по возрастанию и убыванию)
+  - find_if (поиск first==2)
+  - count_if (подсчет first==4)
+  - for_each (добавление min+max к first)
+end note
+
+note bottom of task3_functions
+  TASK 3: Работа с map<int,int>
+  Операции:
+  - замена ключа 5 на 0
+  - удаление ключей в диапазоне [2,5]
+  - поиск по ключу (find)
+  - подсчет элементов (count_if)
+  - вычисление среднего значений
+  - добавление среднего как ключа
+  - добавление minKey+maxKey к каждому ключу
+end note
+
+@enduml

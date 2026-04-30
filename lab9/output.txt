@@ -1,0 +1,11 @@
+List a: [2, 2, 2, 2, 2]
+List b: [3, 3, 3, 3, 3]
+Size of a: 5
+a[2] = 2
+a * b: [6, 6, 6, 6, 6]
+a + 2: [2, 2, 2]
+
+Testing exceptions:
+Exception: Index out of range
+Exception: Invalid size
+Exception: Lists have different sizes

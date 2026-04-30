@@ -1,0 +1,92 @@
+========== MENU ==========
+1. Create and save records
+2. Read and display all records
+3. Delete all records less than given value
+4. Increase records with given value by L
+5. Add K records after specified position
+6. Exit
+Choice: 1
+How many pairs to create? 2
+
+Pair 1:
+Enter first (int): 12
+Enter second (double): 12.12
+
+Pair 2:
+Enter first (int): 23
+Enter second (double): 23.23
+Saved to file.
+
+========== MENU ==========
+1. Create and save records
+2. Read and display all records
+3. Delete all records less than given value
+4. Increase records with given value by L
+5. Add K records after specified position
+6. Exit
+Choice: 2
+1. 12:12.12
+2. 23:23.23
+
+========== MENU ==========
+1. Create and save records
+2. Read and display all records
+3. Delete all records less than given value
+4. Increase records with given value by L
+5. Add K records after specified position
+6. Exit
+Choice: 5
+Enter position (1-based): 1
+Enter K (number of records to add): 1
+
+New record 1:
+Enter first (int): 131
+Enter second (double): 141.1
+Added 1 records after position 1.
+
+========== MENU ==========
+1. Create and save records
+2. Read and display all records
+3. Delete all records less than given value
+4. Increase records with given value by L
+5. Add K records after specified position
+6. Exit
+Choice: 2
+1. 12:12.12
+2. 131:141.1
+3. 23:23.23
+
+========== MENU ==========
+1. Create and save records
+2. Read and display all records
+3. Delete all records less than given value
+4. Increase records with given value by L
+5. Add K records after specified position
+6. Exit
+Choice: 3
+Enter threshold pair:
+Enter first (int): 22
+Enter second (double): 22.2
+Deleted 1 records.
+
+========== MENU ==========
+1. Create and save records
+2. Read and display all records
+3. Delete all records less than given value
+4. Increase records with given value by L
+5. Add K records after specified position
+6. Exit
+Choice: 2
+1. 131:141.1
+2. 23:23.23
+
+========== MENU ==========
+1. Create and save records
+2. Read and display all records
+3. Delete all records less than given value
+4. Increase records with given value by L
+5. Add K records after specified position
+6. Exit
+Choice: 6
+Goodbye!
+

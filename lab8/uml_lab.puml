@@ -1,0 +1,72 @@
+@startuml
+title Magazine Tree System - UML Class Diagram
+
+abstract class PRINT {
+  # name: string
+  # author: string
+  + PRINT()
+  + PRINT(string, string)
+  + virtual ~PRINT()
+  + {abstract} input() : void
+  + {abstract} output() : void
+  + getName() : string
+  + getAuthor() : string
+}
+
+class MAGAZIN {
+  - pages: int
+  + MAGAZIN()
+  + MAGAZIN(string, string, int)
+  + input() : void
+  + output() : void
+  + getName() : string
+}
+
+class TreeNode {
+  + data: MAGAZIN*
+  + children: vector<TreeNode*>
+  + parent: TreeNode*
+  + TreeNode(MAGAZIN*)
+  + ~TreeNode()
+}
+
+class Tree {
+  # root: TreeNode*
+  # size: int
+  + Tree()
+  + virtual ~Tree()
+  + addRoot(MAGAZIN*) : void
+  + addChild(string, MAGAZIN*) : bool
+  + removeNode(string) : bool
+  + display() : void
+  + displayNames() : void
+  + getSize() : int
+  + operator~() : int
+  + getRoot() : TreeNode*
+  # findNode(TreeNode*, string) : TreeNode*
+  # printTree(TreeNode*, int) : void
+  # printNames(TreeNode*) : void
+  # clear(TreeNode*) : void
+}
+
+class Dialog {
+  + run() : void
+  + findNode(TreeNode*, string) : TreeNode*
+}
+
+PRINT <|-- MAGAZIN
+Tree *-- TreeNode
+Dialog --|> Tree
+TreeNode o-- MAGAZIN
+
+note top of PRINT : Abstract base class\nPure virtual methods: input(), output()
+
+note bottom of MAGAZIN : Magazine with pages\nInherits from PRINT
+
+note right of TreeNode : Tree node structure\nContains magazine data\nand child nodes
+
+note left of Tree : N-ary tree container\nManages hierarchical structure\nof magazines
+
+note bottom of Dialog : User interface\nInherits from Tree\nInteractive console menu
+
+@enduml

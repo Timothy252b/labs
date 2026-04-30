@@ -1,0 +1,23 @@
+========== TASK 1: multiset<double> ==========
+Initial multiset: 1.5 1.5 2.3 2.3 3.9 4.7 5.1 6.2 
+After adding average to end: 1.5 1.5 2.3 2.3 3.4375 3.9 4.7 5.1 6.2 
+After deleting elements in [2.0,5.0]: 1.5 1.5 5.1 6.2 
+After adding sum(min+max) to each: 9.2 9.2 12.8 13.9 
+
+========== TASK 2: multiset<Pair> ==========
+Initial multiset: (1,2) (1,2) (3,4) (3,4) (5,6) (7,8) 
+After adding average to end: (1,2) (1,2) (3,4) (3,4) (3,4) (5,6) (7,8) 
+After deleting elements in range (2,3) to (6,7): (1,2) (1,2) (7,8) 
+After adding sum(min+max) to each: (9,12) (9,12) (15,18) 
+
+========== TASK 3: ParameterizedList<double> ==========
+Initial list: 1.5 2.3 2.3 3.9 4.7 5.1 
+After adding average: 1.5 2.3 2.3 3.3 3.9 4.7 5.1 
+After deleting in (2.0,5.0): 1.5 5.1 
+After adding sum(min+max): 8.1 11.7 
+
+========== TASK 3: ParameterizedList<Pair> ==========
+Initial list: (1,2) (1,2) (3,4) (5,6) (7,8) 
+After adding average: (1,2) (1,2) (3,4) (3,4) (5,6) (7,8) 
+After deleting in range: (1,2) (1,2) (7,8) 
+After adding sum(min+max): (9,12) (9,12) (15,18) 

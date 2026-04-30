@@ -1,0 +1,17 @@
+@startuml
+class Salary {
+  - name: std::string
+  - salary: double
+  - bonusPercent: int
+  + __ctor__(): Salary
+  + __ctor__(n: const std::string&, s: double, bP: int): Salary
+  + __ctor__(s: const Salary&): Salary
+  + __dtor__(): ~Salary
+  + setSalary(s: double): void
+  + setBonus(b: int): void
+  + getName(): const std::string&
+  + getSalary(): double
+  + getBonus(): int
+  + print(): void
+}
+@enduml

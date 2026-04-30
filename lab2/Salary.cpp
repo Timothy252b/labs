@@ -1,0 +1,3 @@
+#include "Salary.h"
+
+Salary::

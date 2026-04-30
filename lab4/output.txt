@@ -1,0 +1,13 @@
+|Name: Jane Doe, Age: -1| 
+|Student: |Name: Jane Doe, Age: -1| Subject: Astrology, Mark:-1 |
+|Name: Jane Doe, Age: -1| 
+Enter student:
+Enter name: mary
+Enter age: 19
+Subject: math
+Mark: 3
+|Student: |Name: mary, Age: 19| Subject: math, Mark:3 |
+Jane Doe -1 
+mary 19 
+math 3
+

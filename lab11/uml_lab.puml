@@ -1,0 +1,107 @@
+@startuml
+title Laboratory Tasks 1-5 - Complete UML Diagram
+
+struct Pair<T> {
+  + first: T
+  + second: T
+  + Pair(f: T, s: T)
+  + operator<(other: Pair) : bool
+  + operator>(other: Pair) : bool
+  + operator==(other: Pair) : bool
+}
+
+class MyList<T> {
+  - data: list<T>
+  + MyList(init: initializer_list<T>)
+  + addAvg() : void
+  + eraseByKeyRange(low: T, high: T) : void
+  + addMinMaxToEach() : void
+  + print() : void
+}
+
+class MyPriorityQueue<T> {
+  - pq: priority_queue
+  + MyPriorityQueue(init: initializer_list<Pair<T>>)
+  + addAvg() : void
+  + eraseByKeyRange(low: T, high: T) : void
+  + addMinMaxToEach() : void
+  + print() : void
+}
+
+class task1 {
+  + {static} task1() : void
+}
+
+class task2 {
+  + {static} task2() : void
+}
+
+class task3 {
+  + {static} task3() : void
+}
+
+class task4 {
+  + {static} task4() : void
+}
+
+class task5 {
+  + {static} task5() : void
+}
+
+class main {
+  + {static} main() : int
+}
+
+MyList --> Pair
+MyPriorityQueue --> Pair
+task1 --> main
+task2 --> main
+task3 --> main
+task4 --> main
+task5 --> main
+
+note top of Pair
+  Сравнение по сумме first+second
+  Перегружен operator<< для вывода
+end note
+
+note right of MyList
+  Адаптер над std::list
+  Шаблонный класс
+  Работает с любым типом T
+end note
+
+note left of MyPriorityQueue
+  Адаптер над priority_queue
+  Использует std::greater для сортировки
+  Хранит объекты Pair<T>
+end note
+
+note bottom of task1
+  Работа с list<double>
+  Удаление элементов в диапазоне (2,4)
+  Добавление среднего арифметического
+  Добавление суммы min+max
+end note
+
+note bottom of task2
+  Работа с list<Pair<int>>
+  Удаление по ключу [5,15]
+  Преобразование элементов
+end note
+
+note bottom of task3
+  Использование шаблонного класса MyList
+  Параметр T = double
+end note
+
+note bottom of task4
+  Работа с priority_queue<Pair<int>>
+  Сортировка по возрастанию суммы
+end note
+
+note bottom of task5
+  Использование шаблонного класса MyPriorityQueue
+  Параметр T = int
+end note
+@enduml

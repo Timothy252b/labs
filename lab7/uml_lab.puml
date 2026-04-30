@@ -1,0 +1,64 @@
+@startuml
+title Template Classes: List and Pair
+
+class List_Data <<T>> {
+  - head: Node*
+  - tail: Node*
+  - size: int
+  + List()
+  + List(int)
+  + List(const List&)
+  + template List(const List<OtherType>&)
+  + ~List()
+  + pushFront(Data) : void
+  + pushBack(Data) : void
+  + popFront() : void
+  + popBack() : void
+  + getSize() : int
+  + isEmpty() : bool
+  + print() : void
+  + front() : Data
+  + back() : Data
+  + begin() : Node*
+  + end() : Node*
+  + operator[](int) : Data&
+  + operator()() : int
+  + operator=(const List&) : List&
+}
+
+class Node_Data <<T>> {
+  + data: Data
+  + prev: Node*
+  + next: Node*
+  + Node(Data)
+}
+
+class Pair_T1_T2 <<T1,T2>> {
+  - first: T1
+  - second: T2
+  + Pair()
+  + Pair(T1, T2)
+  + template Pair(const Pair<s1,s2>&)
+  + ~Pair()
+  + setFirst(T1) : void
+  + setSecond(T2) : void
+  + getFirst() : T1
+  + getSecond() : T2
+  + operator=(const Pair&) : Pair&
+  + operator-(const Pair&) : Pair
+  + operator+(int) : Pair
+  + operator+(double) : Pair
+}
+
+List_Data *-- Node_Data
+Pair_T1_T2 : + friend << operator<<(ostream&, const Pair&)
+Pair_T1_T2 : + friend >> operator>>(istream&, Pair&)
+
+note bottom of List_Data
+  Глобальная функция operator* 
+  для поэлементного умножения
+  списков разных типов
+  auto operator*(const List<T1>&, const List<T2>&)
+end note
+
+@enduml

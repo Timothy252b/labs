@@ -1,0 +1,52 @@
+@startuml
+title Person and Student Hierarchy
+
+abstract class Person {
+  - name: string
+  - age: int
+  + Person()
+  + Person(string, int)
+  + Person(Person&)
+  + ~Person()
+  + setName(string) : void
+  + setAge(int) : void
+  + getName() : string
+  + getAge() : int
+  + {abstract} Show() : void
+}
+
+class Student {
+  - subject: string
+  - mark: int
+  + Student()
+  + Student(string, int, string, int)
+  + Student(Student&)
+  + ~Student()
+  + Show() : void
+  + setSubject(string) : void
+  + setMark(int) : void
+  + getSubject() : string
+  + getMark() : int
+  + isGood() : void
+}
+
+class Vector {
+  - pArr : Person**
+  - size : int
+  - cur : int
+  + Vector()
+  + Vector(int)
+  + ~Vector()
+  + Add(Person*) : void
+}
+
+Person <|-- Student
+Vector o--> Person
+
+note right of Person : pure virtual method Show\nPerson is abstract
+
+note bottom of Student : isGood() checks mark\n3 or more = good student
+
+note top of Vector : stores array of Person pointers\npolymorphic container
+
+@enduml

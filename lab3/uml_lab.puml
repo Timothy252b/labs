@@ -1,0 +1,22 @@
+@startuml
+class Pair {
+  - first: int
+  - second: double
+  + __ctor__(): Pair
+  + __ctor__(f: int, s: double): Pair
+  + __ctor__(p: const Pair&): Pair
+  + __dtor__(): ~Pair
+  + setFirst(f: const int): void
+  + setSecond(s: const double): void
+  + getFirst(): int
+  + getSecond(): double
+  + operator=(p: const Pair&): Pair&
+  + operator-(p: const Pair&): Pair
+  + operator+(f: const int): Pair
+  + operator+(s: const double): Pair
+}
+
+note top of Pair : Дружественные функции (не члены класса)
+note right : friend operator<<(ostream&, const Pair&)\nfriend operator>>(istream&, Pair&)
+
+@enduml

@@ -1,0 +1,30 @@
+=== TASK 1: LIST ===
+Initial: (5,1) (2,9) (5,3) (7,4) (2,5) (5,6) (8,7) 
+After replace_if (first==5 -> (0,0)): (0,0) (2,9) (0,0) (7,4) (2,5) (0,0) (8,7) 
+After remove_if (first==0): (2,9) (7,4) (2,5) (8,7) 
+Sorted ascending by first: (2,9) (2,5) (7,4) (8,7) 
+Sorted descending by first: (8,7) (7,4) (2,9) (2,5) 
+Found element with first==7: (7,4)
+Count of elements with first==2: 2
+After adding (min+max=10) to each first: (18,7) (17,4) (12,9) (12,5) 
+
+=== TASK 2: PRIORITY QUEUE ===
+Priority queue (max-heap by first): (4,3) (3,1) (2,5) (1,4) (1,2) 
+After replace_if (first==1 -> (9,9)): (4,3) (3,1) (2,5) (9,9) (9,9) 
+After remove_if (first==9): (4,3) (3,1) (2,5) 
+Sorted ascending: (2,5) (3,1) (4,3) 
+Sorted descending: (4,3) (3,1) (2,5) 
+Found element with first==2: (2,5)
+Count of elements with first==4: 1
+After adding (min+max=6) to each first: (10,3) (9,1) (8,5) 
+
+=== TASK 3: MAP (DICTIONARY) ===
+Initial map: (2,9) (3,6) (5,1) (7,4) (8,7) 
+After replacing key 5 with (0,0): (0,0) (2,9) (3,6) (7,4) (8,7) 
+After removing keys in [2,5]: (0,0) (7,4) (8,7) 
+Map is always sorted ascending by key: (0,0) (7,4) (8,7) 
+Found element with key 8: (8,7)
+Count of elements with key>0: 2
+Arithmetic mean of values: 3.66667
+After adding mean as new key: (0,0) (3,0) (7,4) (8,7) 
+After adding (minKey+maxKey=8) to each key: (8,0) (11,0) (15,4) (16,7) 

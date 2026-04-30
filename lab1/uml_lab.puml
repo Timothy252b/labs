@@ -1,0 +1,10 @@
+@startuml
+class Aj {
+  -first: double
+  -second: int
+  +Init(f: double, s: int): void
+  +Read(): void
+  +Show(): void
+  +element(j: int): double
+}
+@enduml

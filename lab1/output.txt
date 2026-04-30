@@ -1,0 +1,7 @@
+32
+a0: 1 r: 2
+Enter a0: 1
+Enter r: 2
+Enter j: 2
+4
+

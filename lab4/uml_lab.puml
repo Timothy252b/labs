@@ -1,0 +1,40 @@
+@startuml
+title Диаграмма классов Person и Student
+
+class Person {
+  # name: std::string
+  # age: int
+  + __ctor__(): Person
+  + __ctor__(n: std::string, a: int): Person
+  + __ctor__(p: const Person&): Person
+  + __dtor__(): ~Person
+  + operator=(p: const Person&): Person&
+  + setName(n: const std::string): void
+  + getName(): std::string
+  + getAge(): int
+  + operator++(): Person&
+  + operator++(int): Person
+  + {virtual} print(): void
+}
+
+class Student {
+  # subject: std::string
+  # mark: int
+  + __ctor__(): Student
+  + __ctor__(n: std::string, a: int, s: std::string, m: int): Student
+  + __ctor__(s: const Student&): Student
+  + __dtor__(): ~Student
+  + operator=(s: const Student&): Student&
+  + setSubject(s: const std::string): void
+  + setMark(m: const int): void
+  + print(): void
+  + aboutMark(): void
+}
+
+Person <|-- Student
+
+note top of Person : Дружественные операторы:\n<< >>\n\nПрефиксный/постфиксный\nинкремент (увеличивает age)
+
+note bottom of Student : Дружественные операторы:\n<< >>\n\nМетод aboutMark()\nпроверяет оценку
+
+@enduml

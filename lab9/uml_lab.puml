@@ -1,0 +1,48 @@
+@startuml
+title List Class with Exception Hierarchy
+
+class List {
+  - data: int*
+  - size: int
+  + List(s: int)
+  + List(const List&)
+  + ~List()
+  + operator[](index: int) : int&
+  + operator[](index: int) : const int&
+  + operator int() : int
+  + operator*(const List&) : List
+  + operator+(n: int) : List&
+  + operator=(const List&) : List&
+  + print() : void
+  + fill(value: int) : void
+}
+
+class ListIndexError {
+  + what() : const char*
+}
+
+class ListSizeError {
+  + what() : const char*
+}
+
+class ListMultiplicationError {
+  + what() : const char*
+}
+
+List ..> ListIndexError : throws
+List ..> ListSizeError : throws
+List ..> ListMultiplicationError : throws
+
+note right of List::operator[]
+  Throws ListIndexError
+end note
+
+note right of List::List
+  Throws ListSizeError
+end note
+
+note right of List::operator*
+  Throws ListMultiplicationError
+end note
+
+@enduml

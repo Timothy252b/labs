@@ -1,0 +1,78 @@
+@startuml
+title Complete UML Diagram - Multiset Tasks
+
+class Pair {
+  + first: int
+  + second: int
+  + Pair(f: int, s: int)
+  + operator<(other: Pair) : bool
+  + operator==(other: Pair) : bool
+}
+
+class ParameterizedList<T> {
+  - container: multiset<T>
+  + addElements(values: vector<T>) : void
+  + deleteElementsInRange(low: T, high: T) : void
+  + addAvgToEnd() : void
+  + addSumMinMaxToEach() : void
+  + print() : void
+  + size() : size_t
+}
+
+class task1_functions {
+  + addToMultiset(ms: multiset<double>&, values: vector<double>) : void
+  + deleteElementsInRange(ms: multiset<double>&, low: double, high: double) : void
+  + addAvgToEnd(ms: multiset<double>&) : void
+  + addSumMinMaxToEach(ms: multiset<double>&) : void
+  + printMultiset(ms: multiset<double>&) : void
+}
+
+class task2_functions {
+  + addToMultiset(ms: multiset<Pair>&, values: vector<Pair>) : void
+  + deleteElementsInRange(ms: multiset<Pair>&, low: Pair, high: Pair) : void
+  + addAvgToEnd(ms: multiset<Pair>&) : void
+  + addSumMinMaxToEach(ms: multiset<Pair>&) : void
+  + printPairMultiset(ms: multiset<Pair>&) : void
+}
+
+class main {
+  + {static} main() : int
+}
+
+ParameterizedList --> Pair : uses
+task1_functions ..> main : called by
+task2_functions ..> main : called by
+ParameterizedList ..> main : used in
+
+note top of Pair
+  Хранит пару целых чисел
+  Сравнение сначала по first, затем по second
+  Перегружен оператор вывода
+end note
+
+note right of ParameterizedList
+  Шаблонный класс
+  Работает с типами double и Pair
+  Использует std::multiset как контейнер
+  Операции:
+  1. Добавление элементов
+  2. Удаление в диапазоне
+  3. Добавление среднего
+  4. Добавление суммы min+max
+end note
+
+note left of task1_functions
+  Функции для работы с multiset<double>
+  Task 1
+end note
+
+note left of task2_functions
+  Функции для работы с multiset<Pair>
+  Task 2
+end note
+
+note bottom
+  Task 3: ParameterizedList<double>
+  Task 3: ParameterizedList<Pair>
+end note
+@enduml

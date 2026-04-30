@@ -1,0 +1,117 @@
+=== Magazine Tree Manager ===
+First, create root node!
+
+Commands:
+  m   - create root magazine
+  +   - add child magazine (asks for parent name)
+  -   - remove magazine
+  s   - show tree structure
+  z   - show magazine names
+  q   - quit
+Enter command: m
+--- Create Root Magazine ---
+Enter name: rootMagazin
+Enter author: me
+Enter pages: 123
+
+Root created. Size: 1
+
+Commands:
+  m   - create root magazine
+  +   - add child magazine (asks for parent name)
+  -   - remove magazine
+  s   - show tree structure
+  z   - show magazine names
+  q   - quit
+Enter command: +
+Enter parent magazine name: rootMagazin
+--- Create Child Magazine ---
+Enter name: special
+Enter author: goodGuy
+Enter pages: 234
+
+Added child to 'rootMagazin'. Size: 2
+
+Commands:
+  m   - create root magazine
+  +   - add child magazine (asks for parent name)
+  -   - remove magazine
+  s   - show tree structure
+  z   - show magazine names
+  q   - quit
+Enter command: +
+Enter parent magazine name: rootMagazin
+--- Create Child Magazine ---
+Enter name: halloween
+Enter author: vampire
+Enter pages: 167
+
+Added child to 'rootMagazin'. Size: 3
+
+Commands:
+  m   - create root magazine
+  +   - add child magazine (asks for parent name)
+  -   - remove magazine
+  s   - show tree structure
+  z   - show magazine names
+  q   - quit
+Enter command: +
+Enter parent magazine name: halloween
+--- Create Child Magazine ---
+Enter name: special
+Enter author: vampire
+Enter pages: 169
+
+Added child to 'halloween'. Size: 4
+
+Commands:
+  m   - create root magazine
+  +   - add child magazine (asks for parent name)
+  -   - remove magazine
+  s   - show tree structure
+  z   - show magazine names
+  q   - quit
+Enter command: s
+
+=== Tree Structure ===
+[rootMagazin, me, 123p]
+  [special, goodGuy, 234p]
+  [halloween, vampire, 167p]
+    [special, vampire, 169p]
+
+Commands:
+  m   - create root magazine
+  +   - add child magazine (asks for parent name)
+  -   - remove magazine
+  s   - show tree structure
+  z   - show magazine names
+  q   - quit
+Enter command: -
+Enter name to remove: halloween
+
+Removed. Size: 3
+
+Commands:
+  m   - create root magazine
+  +   - add child magazine (asks for parent name)
+  -   - remove magazine
+  s   - show tree structure
+  z   - show magazine names
+  q   - quit
+Enter command: s
+
+=== Tree Structure ===
+[rootMagazin, me, 123p]
+  [special, goodGuy, 234p]
+
+Commands:
+  m   - create root magazine
+  +   - add child magazine (asks for parent name)
+  -   - remove magazine
+  s   - show tree structure
+  z   - show magazine names
+  q   - quit
+Enter command: q
+
+Goodbye!
+

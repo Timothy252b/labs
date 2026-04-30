@@ -1,0 +1,45 @@
+@startuml
+class List {
+  - head: Node*
+  - tail: Node*
+  - size: int
+  + List()
+  + List(int)
+  + List(const List&)
+  + ~List()
+  + pushFront(int) : void
+  + pushBack(int) : void
+  + popFront() : void
+  + popBack() : void
+  + getSize() : int
+  + isEmpty() : bool
+  + print() : void
+  + front() : int
+  + back() : int
+  + begin() : Node*
+  + end() : Node*
+  + operator[](int) : int&
+  + operator()() : int
+}
+
+class Node {
+  + data: int
+  + prev: Node*
+  + next: Node*
+  + Node(int)
+}
+
+class ListIter {
+  - iter: Node*
+  + ListIter()
+  + ListIter(Node*)
+  + ListIter(Node&)
+  + ListIter(List&)
+  + ~ListIter()
+  + operator+(int) : ListIter
+  + operator*() : int&
+}
+
+List *-- Node
+ListIter --> Node
+@enduml

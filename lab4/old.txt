@@ -1,0 +1,153 @@
+=========================================
+FILE: main.cpp
+=========================================
+#include "Student.h"
+//#include "Person.h"
+
+int main() {
+    Student s;
+    Person p;
+    const Person* ps = &s;
+    std::cout << p << std::endl;
+    std::cout << s << std::endl;
+    std::cout << *ps << std::endl;
+    Student t;
+    std::cin >> t;
+    std::cout << t << std::endl;
+    Student* pss = &t;
+    pss->aboutMark();
+    Person* pp = &p;
+    pp->print();
+    pp = &t;
+    pp->print();
+    return 0;
+}
+
+=========================================
+FILE: Person.h
+=========================================
+#pragma once
+#include <iostream>
+#include <string>
+
+class Person {
+protected:
+    std::string name;
+    int age;
+public:
+    Person() : name("Jane Doe"), age(-1) {}
+    Person(std::string n, int a) : name(n), age(a) {}
+    Person(const Person& p) : name(p.name), age(p.age) {}
+    virtual ~Person() {}
+    Person& operator=(const Person& p){
+        name = p.name;
+        age = p.age;
+        return *this;
+    }
+    void setName(const std::string n) {
+        name = n;
+    }
+    std::string getName() {
+        return name;
+    }
+    int getAge() {
+        return age;
+    }
+    Person& operator++() {
+        age += 1;
+        return *this;
+    }
+    Person operator++(int) {
+        Person tmp(*this);
+        age += 1;
+        return tmp;
+    }
+    virtual void print() const  {
+        std::cout << name << " " << age << " " << std::endl;
+    }
+    friend std::ostream& operator<<(std::ostream& cout, const Person& p);
+    friend std::istream& operator>>(std::istream& cin, Person& p);
+};
+
+=========================================
+FILE: Person.cpp
+=========================================
+#include "Person.h"
+
+std::ostream& operator<<(std::ostream& cout, const Person& p) {
+    std::cout << "|Name: " << p.name << ", Age: " << p.age << "| ";
+    return cout;
+}
+std::istream& operator>>(std::istream& cin, Person& p) {
+    std::cout << "Enter name: ";
+    std::getline(cin, p.name);
+    std::cout << "Enter age: ";
+    cin >> p.age;
+    return cin;
+}
+
+
+=========================================
+FILE: Student.h
+=========================================
+#include "Person.h"
+
+class Student : public Person {
+protected:
+    std::string subject;
+    int mark;
+public:
+    Student() : Person(), subject("Astrology"), mark(-1) {}
+    Student(std::string n, int a, std::string s, int m)
+        : Person(n, a), subject(s), mark(m) {}
+    Student(const Student& s) 
+        : Person(s.name, s.age), subject(s.subject), mark(s.mark) {}
+    ~Student() {}
+    Student& operator=(const Student& s) {
+        name = s.name;
+        age = s.age;
+        subject = s.subject;
+        mark = s.mark;
+        return *this;
+    }
+    void setSubject(const std::string s) {
+        subject = s;
+    }
+    void setMark(const int m) {
+        mark = m;
+    }
+    friend std::ostream& operator<<(std::ostream& cout, const Student& s);
+    friend std::istream& operator>>(std::istream& cin, Student& s);
+    void print() const {
+        Person::print();
+        std::cout << subject << " " << mark << std::endl;
+    }
+    void aboutMark() {
+        if (mark < 3) std::cout << "Very bad student, fired!" << std::endl;
+    }
+};
+
+=========================================
+FILE: Student.cpp
+=========================================
+#include "Student.h"
+
+std::ostream& operator<<(std::ostream& cout, const Student& s) {
+    cout << "|Student: ";
+    const Person* p = &s;
+    cout << *p;
+    cout << "Subject: "  << s.subject << ", Mark:" << s.mark << " |"; 
+    return cout;
+}
+std::istream& operator>>(std::istream& cin, Student& s) {
+    std::cout << "Enter student:" << std::endl;
+    Person& p = s;
+    cin >> p;
+    cin.ignore();
+    std::cout << "Subject: ";
+    std::getline(std::cin, s.subject);
+    std::cout << "Mark: ";
+    cin >> s.mark;
+    return cin;
+}
+

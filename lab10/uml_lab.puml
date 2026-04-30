@@ -1,0 +1,45 @@
+@startuml
+title Pair Class with File Operations
+
+class Pair {
+  - first: int
+  - second: double
+  + Pair()
+  + Pair(int, double)
+  + getFirst() : int
+  + getSecond() : double
+  + setFirst(int) : void
+  + setSecond(double) : void
+  + operator-(const Pair&) : Pair
+  + operator+(int) : Pair
+  + operator+(double) : Pair
+  + operator<(const Pair&) : bool
+  + operator==(const Pair&) : bool
+}
+
+class main {
+  + {static} main() : int
+}
+
+Pair : + friend operator<<(ostream&, const Pair&) : ostream&
+Pair : + friend operator>>(istream&, Pair&) : istream&
+
+main ..> Pair : uses
+main ..> saveToFile : calls
+main ..> loadFromFile : calls
+main ..> displayAll : calls
+main ..> createAndSave : calls
+main ..> readAndDisplay : calls
+main ..> deleteLessThan : calls
+main ..> increaseByL : calls
+main ..> addAfterPosition : calls
+
+note top of Pair
+  Overloaded operators:
+  - subtraction
+  - addition with int/double
+  - comparison (< and ==)
+  - stream operators
+end note
+
+@enduml
